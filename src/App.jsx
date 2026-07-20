@@ -11,7 +11,7 @@ import { userContext, UserContextProvider  } from "./context/UserContext";
 import Counter from "./Hooks/UseReducer/Counter";
 import User from "./Hooks/UseReducer/User";
 import MyUseMemo from "./Hooks/UseMemo/MyUseMemo";
-import MyUseID from "./Hooks/UseID/MyUseID";
+import MyUseID, { MyUseIDNotes } from "./Hooks/UseID/MyUseID";
 import MyUseTranslation from "./Hooks/UseTranslation/MyUseTranslation";
 
 // Helper component to provide consistent layout wrapper around each demo component
@@ -356,6 +356,7 @@ function App() {
               >
                 <MyUseID />
                 <MyUseID />
+                <MyUseIDNotes />
               </DemoPageWrapper>
             } 
           />
