@@ -25,11 +25,46 @@ const Home = () => {
       icon: "🎯",
     },
     {
-      title: "forwardRef & useImperativeHandle",
-      description: "Expose child component functions (like focus and clear inputs) up to parent components using custom refs.",
-      tag: "Hook",
+      title: "forwardRef & Context API",
+      description: "Expose child functions up to parent components with custom refs and pass global user state down using React Context API (`UserContextProvider`).",
+      tag: "Hook & Context",
       path: "/forward-ref",
       icon: "🔑",
+    },
+    {
+      title: "useReducer (Counter)",
+      description: "Manage complex state transitions cleanly using pure reducer functions and action dispatches for increment, decrement, and reset.",
+      tag: "Hook",
+      path: "/use-reducer-counter",
+      icon: "🧮",
+    },
+    {
+      title: "useReducer (Form)",
+      description: "Handle dynamic multi-field form state updates with a centralized reducer action handler and clean state reset functionality.",
+      tag: "Hook",
+      path: "/use-reducer-form",
+      icon: "📋",
+    },
+    {
+      title: "useMemo & useCallback",
+      description: "Optimize application performance by memoizing expensive calculation results and preserving callback function references.",
+      tag: "Hook",
+      path: "/use-memo",
+      icon: "🚀",
+    },
+    {
+      title: "useID Hook",
+      description: "Generate unique, SSR-safe accessibility identifiers to link form labels with inputs reliably across renders.",
+      tag: "Hook",
+      path: "/use-id",
+      icon: "🆔",
+    },
+    {
+      title: "useTranslation Hook",
+      description: "Implement internationalization (i18n) and smooth language switching (English / Hindi) dynamically across your app.",
+      tag: "Hook",
+      path: "/use-translation",
+      icon: "🌐",
     },
     {
       title: "Class Component Lifecycle",
@@ -58,8 +93,10 @@ const Home = () => {
         {cards.map((card, index) => (
           <div key={index} className="dashboard-card">
             <div>
-              <span className="card-header-icon">{card.icon}</span>
-              <div className={`card-tag ${card.tag.toLowerCase()}`}>{card.tag}</div>
+              <div className="card-header-top">
+                <span className="card-header-icon">{card.icon}</span>
+                <span className={`card-tag ${card.tag.toLowerCase().includes('hook') ? 'hook' : 'lifecycle'}`}>{card.tag}</span>
+              </div>
               <h3>{card.title}</h3>
               <p>{card.description}</p>
             </div>

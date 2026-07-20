@@ -13,7 +13,7 @@ const CustomInput = forwardRef((props,ref) => {
 
   return (
    <>
-     <input type='text' placeholder='name' ref={inputEl} onChange={props.onChange}/>
+     <input className="custom-input" type='text' placeholder='Enter Name' ref={inputEl} onChange={props.onChange}/>
    </>
   )
 })
