@@ -450,7 +450,10 @@ function App() {
       {/* Small & Compact Footer */}
       <footer className="app-footer">
         <div className="footer-content">
-          <p>
+          <p className="footer-copy">
+            © {new Date().getFullYear()} React Hooks & Lifecycle Lab. All rights reserved.
+          </p>
+          <p className="footer-dev">
             Developed by{" "}
             <a 
               href="http://chaitalimore.in/" 
@@ -460,10 +463,6 @@ function App() {
             >
               Chaitali More
             </a>
-          </p>
-          <span className="footer-divider">•</span>
-          <p className="footer-copy">
-            © {new Date().getFullYear()} React Hooks & Lifecycle Lab. All rights reserved.
           </p>
         </div>
       </footer>
