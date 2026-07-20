@@ -67,6 +67,13 @@ const Home = () => {
       icon: "🌐",
     },
     {
+      title: "useTransition Hook",
+      description: "Mark non-urgent state updates as background transitions to prevent application UI freezes during heavy rendering.",
+      tag: "Hook",
+      path: "/use-transition",
+      icon: "⏳",
+    },
+    {
       title: "Class Component Lifecycle",
       description: "See classical React lifecycle phases in action (constructor setup, mount triggers, state updates, and unmount logs).",
       tag: "Lifecycle",

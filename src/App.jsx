@@ -13,6 +13,7 @@ import User from "./Hooks/UseReducer/User";
 import MyUseMemo from "./Hooks/UseMemo/MyUseMemo";
 import MyUseID, { MyUseIDNotes } from "./Hooks/UseID/MyUseID";
 import MyUseTranslation from "./Hooks/UseTranslation/MyUseTranslation";
+import MyUseTransition from "./Hooks/UseTransition/MyUseTransition";
 
 // Helper component to provide consistent layout wrapper around each demo component
 const DemoPageWrapper = ({ title, category, notes, children }) => {
@@ -105,6 +106,9 @@ function App() {
               <NavLink to="/use-translation" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
                useTranslation
               </NavLink>
+              <NavLink to="/use-transition" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
+               useTransition
+              </NavLink>
             </div>
           </div>
 
@@ -187,6 +191,9 @@ function App() {
               </NavLink>
               <NavLink to="/use-translation" className="offcanvas-sublink" onClick={() => setIsMobileMenuOpen(false)}>
                 useTranslation
+              </NavLink>
+              <NavLink to="/use-transition" className="offcanvas-sublink" onClick={() => setIsMobileMenuOpen(false)}>
+                useTransition
               </NavLink>
             </div>
           </div>
@@ -364,13 +371,13 @@ function App() {
             path="/use-translation" 
             element={
               <DemoPageWrapper 
-                title="useTranslation & useTransition Hook Demo" 
+                title="useTranslation (i18n) Hook Demo" 
                 category="Hook"
                 notes={{
-                  summary: "useTranslation provides i18n support for multi-language apps, while useTransition optimizes non-urgent background rendering.",
+                  summary: "useTranslation provides internationalization (i18n) support for multi-language React applications.",
                   points: [
                     "t('welcome') dynamically looks up and renders translations based on active language setting.",
-                    "useTransition marks non-urgent state updates to run in the background without freezing the UI."
+                    "i18n.changeLanguage('hi') instantly updates application language without page reload."
                   ]
                 }}
               >
@@ -382,17 +389,17 @@ function App() {
             path="/use-transition" 
             element={
               <DemoPageWrapper 
-                title="useTransition Hook Demo & Revision Guide" 
+                title="useTransition Hook Demo" 
                 category="Hook"
                 notes={{
-                  summary: "useTransition is a React Hook that allows non-urgent state updates to be performed in the background without blocking the UI.",
+                  summary: "useTransition is a React 18 hook that allows non-urgent state updates to be performed in the background without freezing the UI.",
                   points: [
-                    "Keeps the UI interactive during expensive renders.",
+                    "Keeps the UI interactive during expensive renders and filtering operations.",
                     "Returns [isPending, startTransition] to show loading indicators smoothly."
                   ]
                 }}
               >
-                <MyUseTranslation/>
+                <MyUseTransition/>
               </DemoPageWrapper>
             } 
           />
