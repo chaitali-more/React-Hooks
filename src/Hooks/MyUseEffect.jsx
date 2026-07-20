@@ -22,12 +22,15 @@ const MyUseEffect = () => {
     <div
       style={{
         width: `${width}px`,
+        maxWidth: "100%",
         height: `${height}px`,
-        background: "blue",
+        background: "#3b82f6",
+        borderRadius: "8px",
         color: "white",
         textAlign: "center",
         padding: "20px",
         transition: "width 1s",
+        boxSizing: "border-box"
       }}
     >
       My useEffect & useLayoutEffect

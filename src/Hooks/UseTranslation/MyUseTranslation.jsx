@@ -10,7 +10,7 @@ const MyUseTranslation = () => {
 
   return (
     <div className="hook-demo-card">
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
+      <div className="card-top-header">
         <span className="badge-info">i18n Internationalization</span>
         <span style={{ fontSize: "0.85rem", color: "var(--text-muted)" }}>Current Language: <strong style={{ color: "#818cf8", textTransform: "uppercase" }}>{i18n.language}</strong></span>
       </div>

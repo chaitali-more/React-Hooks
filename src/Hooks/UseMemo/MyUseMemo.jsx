@@ -32,7 +32,7 @@ const [pending, startTransition] = useTransition();
 
   return (
     <div className="memo-container" style={cssStyle}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
+      <div className="card-top-header">
         <span className="badge-info">useMemo & useCallback Optimization</span>
         <button className="custom-btn" onClick={() => setDark(!dark)}>
           Theme Mode: {dark ? "Indigo Glow" : "Dark Slate"}

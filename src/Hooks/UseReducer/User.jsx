@@ -37,7 +37,7 @@ const User = () => {
   };
   return (
     <div className="hook-demo-card">
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
+      <div className="card-top-header">
         <span className="badge-info">useReducer Form Handling</span>
       </div>
       <form onSubmit={handleSubmit} className="form-layout">

@@ -5,7 +5,7 @@ const MyUseID = () => {
 const id = useId();
   return (
     <div className="hook-demo-card" style={{ marginBottom: "1rem" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <div className="card-top-header">
         <span className="badge-info">useId Accessibility Hook</span>
         <span className="id-badge">Generated ID: {id}</span>
       </div>

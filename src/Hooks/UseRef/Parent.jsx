@@ -12,7 +12,7 @@ const {name,setName} = useUserDetails()
 
   return (
     <div className="hook-demo-card">
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.5rem" }}>
+      <div className="card-top-header">
         <span className="badge-info">Context API & forwardRef Demo</span>
         <span style={{ fontSize: "0.85rem", color: "var(--text-muted)" }}>Context Provider: <strong style={{ color: "#c084fc" }}>UserContextProvider</strong></span>
       </div>
