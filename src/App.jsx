@@ -363,13 +363,31 @@ function App() {
             path="/use-translation" 
             element={
               <DemoPageWrapper 
-                title="useTranslation (i18n) Hook Demo" 
+                title="useTranslation & useTransition Hook Demo" 
                 category="Hook"
                 notes={{
-                  summary: "useTranslation provides internationalization (i18n) support for multi-language React applications.",
+                  summary: "useTranslation provides i18n support for multi-language apps, while useTransition optimizes non-urgent background rendering.",
                   points: [
                     "t('welcome') dynamically looks up and renders translations based on active language setting.",
-                    "i18n.changeLanguage('hi') instantly updates application language without page reload."
+                    "useTransition marks non-urgent state updates to run in the background without freezing the UI."
+                  ]
+                }}
+              >
+                <MyUseTranslation/>
+              </DemoPageWrapper>
+            } 
+          />
+          <Route 
+            path="/use-transition" 
+            element={
+              <DemoPageWrapper 
+                title="useTransition Hook Demo & Revision Guide" 
+                category="Hook"
+                notes={{
+                  summary: "useTransition is a React Hook that allows non-urgent state updates to be performed in the background without blocking the UI.",
+                  points: [
+                    "Keeps the UI interactive during expensive renders.",
+                    "Returns [isPending, startTransition] to show loading indicators smoothly."
                   ]
                 }}
               >
