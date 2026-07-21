@@ -32,6 +32,13 @@ const Home = () => {
       icon: "🔑",
     },
     {
+      title: "useContext Hook",
+      description: "Share global state data cleanly across deep component trees without prop drilling using standard React Context APIs.",
+      tag: "Hook",
+      path: "/use-context",
+      icon: "🌐",
+    },
+    {
       title: "useReducer (Counter)",
       description: "Manage complex state transitions cleanly using pure reducer functions and action dispatches for increment, decrement, and reset.",
       tag: "Hook",

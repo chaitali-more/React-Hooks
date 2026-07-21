@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Routes, Route, Link, NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Routes, Route, Link, NavLink, useLocation } from "react-router-dom";
 import Home from "./Home";
 import FunctionLifecycleDemo from "./components/FunctionLifecycleDemo";
 import MyClassComponent from "./ReactLifeCycle/MyClassComponent";
@@ -14,6 +14,7 @@ import MyUseMemo from "./Hooks/UseMemo/MyUseMemo";
 import MyUseID, { MyUseIDNotes } from "./Hooks/UseID/MyUseID";
 import MyUseTranslation from "./Hooks/UseTranslation/MyUseTranslation";
 import MyUseTransition from "./Hooks/UseTransition/MyUseTransition";
+import MyUseContext from "./Hooks/MyUseContext";
 
 // Helper component to provide consistent layout wrapper around each demo component
 const DemoPageWrapper = ({ title, category, notes, children }) => {
@@ -50,7 +51,26 @@ const DemoPageWrapper = ({ title, category, notes, children }) => {
 
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [name,setName] = useState("Chaitali More")
+  const [name,setName] = useState("Chaitali More");
+  const location = useLocation();
+
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+  const isHookActive = [
+    "/use-state",
+    "/use-effect",
+    "/use-ref",
+    "/forward-ref",
+    "/use-context",
+    "/use-reducer-counter",
+    "/use-reducer-form",
+    "/use-memo",
+    "/use-id",
+    "/use-translation",
+    "/use-transition"
+  ].some(path => location.pathname === path);
 
   return (
     <div className="app-container">
@@ -75,40 +95,50 @@ function App() {
           
           {/* Hooks Dropdown */}
           <div className="nav-dropdown-container">
-            <span className="nav-dropdown-trigger">
+            <span className={`nav-dropdown-trigger ${isHookActive ? "active" : ""}`}>
               Hooks <span className="dropdown-arrow">▼</span>
             </span>
             <div className="nav-dropdown-menu">
-              <NavLink to="/use-state" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
-                useState
-              </NavLink>
-              <NavLink to="/use-effect" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
-                useEffect
-              </NavLink>
-              <NavLink to="/use-ref" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
-                useRef
-              </NavLink>
-              <NavLink to="/forward-ref" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
-                forwardRef
-              </NavLink>
-               <NavLink to="/use-reducer-counter" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
-                useReducer Counter
-              </NavLink>
-              <NavLink to="/use-reducer-form" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
-                useReducer Form
-              </NavLink>
-               <NavLink to="/use-memo" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
-               useMemo
-              </NavLink>
-              <NavLink to="/use-id" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
-               useID
-              </NavLink>
-              <NavLink to="/use-translation" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
-               useTranslation
-              </NavLink>
-              <NavLink to="/use-transition" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
-               useTransition
-              </NavLink>
+              <div className="dropdown-column">
+                <span className="dropdown-column-title">Basic Hooks</span>
+                <NavLink to="/use-state" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
+                  useState
+                </NavLink>
+                <NavLink to="/use-effect" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
+                  useEffect
+                </NavLink>
+                <NavLink to="/use-ref" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
+                  useRef
+                </NavLink>
+                <NavLink to="/use-context" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
+                  useContext
+                </NavLink>
+                <NavLink to="/forward-ref" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
+                  forwardRef
+                </NavLink>
+              </div>
+
+              <div className="dropdown-column">
+                <span className="dropdown-column-title">Advanced Hooks</span>
+                <NavLink to="/use-reducer-counter" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
+                  useReducer Counter
+                </NavLink>
+                <NavLink to="/use-reducer-form" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
+                  useReducer Form
+                </NavLink>
+                <NavLink to="/use-memo" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
+                  useMemo
+                </NavLink>
+                <NavLink to="/use-id" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
+                  useID
+                </NavLink>
+                <NavLink to="/use-translation" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
+                  useTranslation
+                </NavLink>
+                <NavLink to="/use-transition" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
+                  useTransition
+                </NavLink>
+              </div>
             </div>
           </div>
 
@@ -175,7 +205,10 @@ function App() {
                 useRef
               </NavLink>
               <NavLink to="/forward-ref" className="offcanvas-sublink" onClick={() => setIsMobileMenuOpen(false)}>
-                forwardRef & Context
+                forwardRef
+              </NavLink>
+              <NavLink to="/use-context" className="offcanvas-sublink" onClick={() => setIsMobileMenuOpen(false)}>
+                useContext
               </NavLink>
               <NavLink to="/use-reducer-counter" className="offcanvas-sublink" onClick={() => setIsMobileMenuOpen(false)}>
                 useReducer Counter
@@ -290,6 +323,26 @@ function App() {
                 }}
               >
                 <Parent />
+              </DemoPageWrapper>
+            } 
+          />
+          
+          <Route 
+            path="/use-context" 
+            element={
+              <DemoPageWrapper 
+                title="useContext & Context API Demo" 
+                category="Hook"
+                notes={{
+                  summary: "Context API provides a way to pass data through the component tree without having to pass props down manually at every level.",
+                  points: [
+                    "createContext creates a context object that can be subscribed to by components.",
+                    "Provider component accepts a value prop to be passed to consuming components.",
+                    "useContext hook reads the current context value from the closest matching Provider above in the tree."
+                  ]
+                }}
+              >
+                <MyUseContext />
               </DemoPageWrapper>
             } 
           />
