@@ -38,6 +38,19 @@ h1, h2, h3, h4, h5, h6 {
   color: #ffffff;
 }
 
+/* Global Inline Code Tag Styling for Uniform Readability */
+code:not(pre code) {
+  font-family: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.88em;
+  padding: 0.15rem 0.45rem;
+  background: rgba(99, 102, 241, 0.15);
+  color: #c7d2fe;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 5px;
+  vertical-align: baseline;
+  word-break: break-word;
+}
+
 /* Layout */
 .app-container {
   display: flex;
@@ -1279,7 +1292,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 10px;
   padding: 1rem 1.25rem;
   font-family: 'Fira Code', monospace, consolas;
-  font-size: 0.85rem;
+  font-size: 0.92rem;
   color: #e6edf3;
   overflow-x: auto;
   line-height: 1.6;

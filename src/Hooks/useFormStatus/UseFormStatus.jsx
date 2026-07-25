@@ -19,7 +19,7 @@ const UseFormStatus = () => {
             <LoginFormStatus />
           </div>
           <div className="mt-4 pt-3 border-t border-slate-700/40">
-            <p className="text-xs text-slate-400 m-0">
+            <p className="text-sm text-slate-300 m-0 leading-normal">
               Notice how <code>CustomButton</code> disables itself automatically using <code>useFormStatus()</code> without receiving <code>isPending</code> as a prop!
             </p>
           </div>
@@ -35,7 +35,7 @@ const UseFormStatus = () => {
             <p className="text-sm text-slate-300 leading-relaxed mb-3">
               <code>useFormStatus</code> only works when called inside a child component that is rendered <strong>within a &lt;form&gt; element</strong>.
             </p>
-            <div className="bg-slate-950/60 p-3 rounded-lg border border-slate-800 text-xs text-amber-300 font-mono">
+            <div className="bg-slate-950/60 p-3 rounded-lg border border-slate-800 text-sm text-amber-300 font-mono">
               ❌ Does NOT work inside component rendering &lt;form&gt;<br />
               ✅ Works inside child components (e.g. &lt;CustomButton /&gt;)
             </div>
@@ -48,7 +48,7 @@ const UseFormStatus = () => {
         <h3 className="text-lg font-bold text-white flex items-center gap-2 m-0">
           🚀 Key Benefits of React 19 <code>useFormStatus</code>
         </h3>
-        <p className="text-sm text-slate-400 mt-1 mb-4">
+        <p className="text-sm text-slate-300 mt-1 mb-4">
           Imported from <code>react-dom</code>, <code>useFormStatus</code> provides automatic status tracking for parent form actions.
         </p>
 
@@ -82,26 +82,26 @@ const UseFormStatus = () => {
         
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-4">
           <div className="bg-slate-800/40 p-3.5 rounded-lg border border-slate-700/50">
-            <span className="text-indigo-300 font-bold">1. pending</span>
-            <p className="text-xs text-slate-400 mt-1 m-0">
+            <span className="text-indigo-300 font-bold text-sm">1. pending</span>
+            <p className="text-sm text-slate-300 mt-1 m-0">
               Boolean flag. Becomes <code>true</code> while the parent form is currently submitting an action.
             </p>
           </div>
           <div className="bg-slate-800/40 p-3.5 rounded-lg border border-slate-700/50">
-            <span className="text-indigo-300 font-bold">2. data</span>
-            <p className="text-xs text-slate-400 mt-1 m-0">
+            <span className="text-indigo-300 font-bold text-sm">2. data</span>
+            <p className="text-sm text-slate-300 mt-1 m-0">
               <code>FormData</code> object containing data submitted by the parent form (or <code>null</code> when idle).
             </p>
           </div>
           <div className="bg-slate-800/40 p-3.5 rounded-lg border border-slate-700/50">
-            <span className="text-indigo-300 font-bold">3. method</span>
-            <p className="text-xs text-slate-400 mt-1 m-0">
+            <span className="text-indigo-300 font-bold text-sm">3. method</span>
+            <p className="text-sm text-slate-300 mt-1 m-0">
               HTTP method (<code>"get"</code> or <code>"post"</code>) used by the form submission.
             </p>
           </div>
           <div className="bg-slate-800/40 p-3.5 rounded-lg border border-slate-700/50">
-            <span className="text-indigo-300 font-bold">4. action</span>
-            <p className="text-xs text-slate-400 mt-1 m-0">
+            <span className="text-indigo-300 font-bold text-sm">4. action</span>
+            <p className="text-sm text-slate-300 mt-1 m-0">
               Reference to the function or URL passed to the parent form's <code>action</code> prop.
             </p>
           </div>
@@ -162,7 +162,7 @@ const UseFormStatus = () => {
         <h3 className="text-lg font-bold text-white flex items-center gap-2 m-0">
           💻 Complete Code Reference
         </h3>
-        <p className="text-sm text-slate-400 mt-1 mb-5">
+        <p className="text-sm text-slate-300 mt-1 mb-5">
           Inspect the full code implementation of <code>CustomButton.jsx</code> and <code>LoginFormStatus.jsx</code> below.
         </p>
 
@@ -171,7 +171,7 @@ const UseFormStatus = () => {
           <div>
             <div className="flex justify-between items-center mb-1.5">
               <span className="text-emerald-400 font-bold text-sm">1. CustomButton.jsx (Child Component)</span>
-              <span className="text-xs text-slate-400">uses useFormStatus() from react-dom</span>
+              <span className="text-sm text-slate-400">uses useFormStatus() from react-dom</span>
             </div>
             <pre className="code-block-box">
 {`import React from "react";
@@ -196,7 +196,7 @@ export default CustomButton;`}
           <div>
             <div className="flex justify-between items-center mb-1.5">
               <span className="text-indigo-400 font-bold text-sm">2. LoginFormStatus.jsx (Parent Component)</span>
-              <span className="text-xs text-slate-400">renders &lt;CustomButton /&gt; inside &lt;form action&gt;</span>
+              <span className="text-sm text-slate-400">renders &lt;CustomButton /&gt; inside &lt;form action&gt;</span>
             </div>
             <pre className="code-block-box">
 {`import React, { useActionState } from "react";

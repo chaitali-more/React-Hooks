@@ -21,7 +21,7 @@ const UseActionState = () => {
             <Login />
           </div>
           <div className="mt-4 pt-3 border-t border-slate-700/40">
-            <p className="text-xs text-slate-400 m-0">
+            <p className="text-sm text-slate-300 m-0 leading-normal">
               Uses <code>onSubmit</code>, <code>e.preventDefault()</code>, manual <code>new FormData(e.currentTarget)</code>, and custom <code>isPending</code> state.
             </p>
           </div>
@@ -36,7 +36,7 @@ const UseActionState = () => {
             <LoginUseAction />
           </div>
           <div className="mt-4 pt-3 border-t border-slate-700/40">
-            <p className="text-xs text-slate-400 m-0">
+            <p className="text-sm text-slate-300 m-0 leading-normal">
               Uses React 19 <code>useActionState</code> hook with <code>&lt;form action=&#123;submitAction&#125;&gt;</code> and built-in <code>isPending</code> status.
             </p>
           </div>
@@ -48,7 +48,7 @@ const UseActionState = () => {
         <h3 className="text-lg font-bold text-white flex items-center gap-2 m-0">
           🚀 Key Benefits of React 19 <code>useActionState</code>
         </h3>
-        <p className="text-sm text-slate-400 mt-1 mb-4">
+        <p className="text-sm text-slate-300 mt-1 mb-4">
           React 19 simplifies form handling by integrating state management directly with form actions.
         </p>
 
@@ -85,26 +85,26 @@ const UseActionState = () => {
         
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-4">
           <div className="bg-slate-800/40 p-3.5 rounded-lg border border-slate-700/50">
-            <span className="text-indigo-300 font-bold">1. state</span>
-            <p className="text-xs text-slate-400 mt-1 m-0">
+            <span className="text-indigo-300 font-bold text-sm">1. state</span>
+            <p className="text-sm text-slate-300 mt-1 m-0">
               Stores the current value returned by the action function (e.g. <code>&#123; error: null, data: response &#125;</code>).
             </p>
           </div>
           <div className="bg-slate-800/40 p-3.5 rounded-lg border border-slate-700/50">
-            <span className="text-indigo-300 font-bold">2. submitAction</span>
-            <p className="text-xs text-slate-400 mt-1 m-0">
+            <span className="text-indigo-300 font-bold text-sm">2. submitAction</span>
+            <p className="text-sm text-slate-300 mt-1 m-0">
               Action function passed directly to <code>&lt;form action=&#123;submitAction&#125;&gt;</code>.
             </p>
           </div>
           <div className="bg-slate-800/40 p-3.5 rounded-lg border border-slate-700/50">
-            <span className="text-indigo-300 font-bold">3. isPending</span>
-            <p className="text-xs text-slate-400 mt-1 m-0">
+            <span className="text-indigo-300 font-bold text-sm">3. isPending</span>
+            <p className="text-sm text-slate-300 mt-1 m-0">
               Boolean flag that becomes <code>true</code> automatically while the async action function is executing.
             </p>
           </div>
           <div className="bg-slate-800/40 p-3.5 rounded-lg border border-slate-700/50">
-            <span className="text-indigo-300 font-bold">4. actionFunction</span>
-            <p className="text-xs text-slate-400 mt-1 m-0">
+            <span className="text-indigo-300 font-bold text-sm">4. actionFunction</span>
+            <p className="text-sm text-slate-300 mt-1 m-0">
               Async function with signature <code>(previousState, formData) =&gt; newState</code>.
             </p>
           </div>
@@ -114,7 +114,7 @@ const UseActionState = () => {
       {/* Execution Flow Diagram Comparison */}
       <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-6">
         <h3 className="text-lg font-bold text-white m-0">🔄 Execution Flow Comparison</h3>
-        <p className="text-sm text-slate-400 mt-1">
+        <p className="text-sm text-slate-300 mt-1">
           Notice how React 19 eliminates manual event handling steps.
         </p>
 
@@ -220,7 +220,7 @@ const UseActionState = () => {
         <h3 className="text-lg font-bold text-white flex items-center gap-2 m-0">
           💻 Complete Code Reference
         </h3>
-        <p className="text-sm text-slate-400 mt-1 mb-5">
+        <p className="text-sm text-slate-300 mt-1 mb-5">
           Inspect the complete source code comparison and helper function implementations below.
         </p>
 
@@ -229,7 +229,7 @@ const UseActionState = () => {
           <div>
             <div className="flex justify-between items-center mb-1.5">
               <span className="text-amber-400 font-bold text-sm">1. Login.jsx (React 18 - Old Way)</span>
-              <span className="text-xs text-slate-400">onSubmit + useState + e.preventDefault()</span>
+              <span className="text-sm text-slate-400">onSubmit + useState + e.preventDefault()</span>
             </div>
             <pre className="code-block-box">
 {`import React, { useState } from "react";
@@ -287,7 +287,7 @@ export default Login;`}
           <div>
             <div className="flex justify-between items-center mb-1.5">
               <span className="text-indigo-400 font-bold text-sm">2. api/user.js (Fake Async API Call)</span>
-              <span className="text-xs text-slate-400">Mock API Promise</span>
+              <span className="text-sm text-slate-400">Mock API Promise</span>
             </div>
             <pre className="code-block-box">
 {`// loginUser.jsx / api/user.js
@@ -316,7 +316,7 @@ export const loginUser = (email, password) => {
           <div>
             <div className="flex justify-between items-center mb-1.5">
               <span className="text-emerald-400 font-bold text-sm">3. LoginUseAction.jsx (React 19 - useActionState)</span>
-              <span className="text-xs text-slate-400">form action + useActionState</span>
+              <span className="text-sm text-slate-400">form action + useActionState</span>
             </div>
             <pre className="code-block-box">
 {`import React, { useActionState } from "react";
@@ -407,7 +407,7 @@ export default LoginUseAction;`}
           <div>
             <div className="flex justify-between items-center mb-1.5">
               <span className="text-purple-400 font-bold text-sm">4. Quick Array Destructuring Reference</span>
-              <span className="text-xs text-slate-400">Parameter Mapping</span>
+              <span className="text-sm text-slate-400">Parameter Mapping</span>
             </div>
             <pre className="code-block-box bg-purple-950/20 border-purple-800/40">
 {`[state, action, isPending]
