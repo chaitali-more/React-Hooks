@@ -4,6 +4,13 @@ import { Link } from "react-router-dom";
 const Home = () => {
   const cards = [
     {
+      title: "useActionState Hook",
+      description: "Manage form actions and pending states effortlessly with React 19's useActionState hook. Simplifies form state, error handling, and eliminates manual onSubmit boilerplate.",
+      tag: "React 19 Hook",
+      path: "/use-action-state",
+      icon: "✨",
+    },
+    {
       title: "useState Hook",
       description: "Manage component state with arrays, booleans, counter functions, and objects. Demonstrates asynchronous batch updates and state change logging.",
       tag: "Hook",
@@ -109,7 +116,7 @@ const Home = () => {
             <div>
               <div className="card-header-top">
                 <span className="card-header-icon">{card.icon}</span>
-                <span className={`card-tag ${card.tag.toLowerCase().includes('hook') ? 'hook' : 'lifecycle'}`}>{card.tag}</span>
+                <span className={`card-tag ${card.tag.toLowerCase().includes('react 19') ? 'react19' : card.tag.toLowerCase().includes('hook') ? 'hook' : 'lifecycle'}`}>{card.tag}</span>
               </div>
               <h3>{card.title}</h3>
               <p>{card.description}</p>

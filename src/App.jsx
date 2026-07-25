@@ -15,6 +15,7 @@ import MyUseID, { MyUseIDNotes } from "./Hooks/UseID/MyUseID";
 import MyUseTranslation from "./Hooks/UseTranslation/MyUseTranslation";
 import MyUseTransition from "./Hooks/UseTransition/MyUseTransition";
 import MyUseContext from "./Hooks/MyUseContext";
+import UseActionState from "./Hooks/useActionState/UseActionState";
 
 // Helper component to provide consistent layout wrapper around each demo component
 const DemoPageWrapper = ({ title, category, notes, children }) => {
@@ -26,7 +27,7 @@ const DemoPageWrapper = ({ title, category, notes, children }) => {
         </Link>
       </div>
       <div className="demo-title-section">
-        <div className={`card-tag ${category.toLowerCase().includes('hook') ? 'hook' : 'lifecycle'}`}>{category}</div>
+        <div className={`card-tag ${category.toLowerCase().includes('react 19') ? 'react19' : category.toLowerCase().includes('hook') ? 'hook' : 'lifecycle'}`}>{category}</div>
         <h1>{title}</h1>
       </div>
       <div className="demo-card-container">
@@ -39,7 +40,7 @@ const DemoPageWrapper = ({ title, category, notes, children }) => {
           {notes.points && (
             <ul>
               {notes.points.map((point, index) => (
-                <li key={index}>• {point}</li>
+                <li key={index}>{point}</li>
               ))}
             </ul>
           )}
@@ -69,7 +70,8 @@ function App() {
     "/use-memo",
     "/use-id",
     "/use-translation",
-    "/use-transition"
+    "/use-transition",
+    "/use-action-state"
   ].some(path => location.pathname === path);
 
   return (
@@ -137,6 +139,13 @@ function App() {
                 </NavLink>
                 <NavLink to="/use-transition" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
                   useTransition
+                </NavLink>
+              </div>
+
+              <div className="dropdown-column">
+                <span className="dropdown-column-title" style={{ color: '#c084fc' }}>React 19 Hooks ✨</span>
+                <NavLink to="/use-action-state" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
+                  useActionState
                 </NavLink>
               </div>
             </div>
@@ -227,6 +236,15 @@ function App() {
               </NavLink>
               <NavLink to="/use-transition" className="offcanvas-sublink" onClick={() => setIsMobileMenuOpen(false)}>
                 useTransition
+              </NavLink>
+            </div>
+          </div>
+
+          <div className="offcanvas-section">
+            <span className="offcanvas-section-title" style={{ color: '#c084fc' }}>React 19 Hooks ✨</span>
+            <div className="offcanvas-section-links">
+              <NavLink to="/use-action-state" className="offcanvas-sublink" onClick={() => setIsMobileMenuOpen(false)}>
+                useActionState
               </NavLink>
             </div>
           </div>
@@ -456,6 +474,26 @@ function App() {
               </DemoPageWrapper>
             } 
           />
+          
+          <Route 
+            path="/use-action-state" 
+            element={
+              <DemoPageWrapper 
+                title="useActionState Hook Demo" 
+                category="React 19 Hook"
+                notes={{
+                  summary: "useActionState is a React 19 hook that allows you to update state based on the result of a form action.",
+                  points: [
+                    "Accepts an action function and initial state, returning [state, formAction, isPending].",
+                    "Simplifies handling form submissions, pending states, and action results."
+                  ]
+                }}
+              >
+                <UseActionState />
+              </DemoPageWrapper>
+            } 
+          />
+
           
           <Route 
             path="/class-component" 
