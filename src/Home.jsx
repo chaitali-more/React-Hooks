@@ -11,6 +11,13 @@ const Home = () => {
       icon: "✨",
     },
     {
+      title: "useFormStatus Hook",
+      description: "Access parent form submission status automatically inside child components with React 19's useFormStatus hook from react-dom.",
+      tag: "React 19 Hook",
+      path: "/use-form-status",
+      icon: "⚡",
+    },
+    {
       title: "useState Hook",
       description: "Manage component state with arrays, booleans, counter functions, and objects. Demonstrates asynchronous batch updates and state change logging.",
       tag: "Hook",

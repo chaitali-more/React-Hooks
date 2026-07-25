@@ -16,6 +16,7 @@ import MyUseTranslation from "./Hooks/UseTranslation/MyUseTranslation";
 import MyUseTransition from "./Hooks/UseTransition/MyUseTransition";
 import MyUseContext from "./Hooks/MyUseContext";
 import UseActionState from "./Hooks/useActionState/UseActionState";
+import UseFormStatus from "./Hooks/useFormStatus/UseFormStatus";
 
 // Helper component to provide consistent layout wrapper around each demo component
 const DemoPageWrapper = ({ title, category, notes, children }) => {
@@ -71,7 +72,8 @@ function App() {
     "/use-id",
     "/use-translation",
     "/use-transition",
-    "/use-action-state"
+    "/use-action-state",
+    "/use-form-status"
   ].some(path => location.pathname === path);
 
   return (
@@ -146,6 +148,9 @@ function App() {
                 <span className="dropdown-column-title react19-title">React 19 Hooks ✨</span>
                 <NavLink to="/use-action-state" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
                   useActionState
+                </NavLink>
+                <NavLink to="/use-form-status" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
+                  useFormStatus
                 </NavLink>
               </div>
             </div>
@@ -245,6 +250,9 @@ function App() {
             <div className="offcanvas-section-links">
               <NavLink to="/use-action-state" className="offcanvas-sublink" onClick={() => setIsMobileMenuOpen(false)}>
                 useActionState
+              </NavLink>
+              <NavLink to="/use-form-status" className="offcanvas-sublink" onClick={() => setIsMobileMenuOpen(false)}>
+                useFormStatus
               </NavLink>
             </div>
           </div>
@@ -490,6 +498,25 @@ function App() {
                 }}
               >
                 <UseActionState />
+              </DemoPageWrapper>
+            } 
+          />
+
+          <Route 
+            path="/use-form-status" 
+            element={
+              <DemoPageWrapper 
+                title="useFormStatus Hook Demo" 
+                category="React 19 Hook"
+                notes={{
+                  summary: "useFormStatus is a React 19 hook imported from 'react-dom' that gives child components access to a parent form's submission status.",
+                  points: [
+                    "Eliminates passing loading/pending state as props down to buttons or form inputs.",
+                    "Must be called inside a component rendered within a <form> element."
+                  ]
+                }}
+              >
+                <UseFormStatus />
               </DemoPageWrapper>
             } 
           />

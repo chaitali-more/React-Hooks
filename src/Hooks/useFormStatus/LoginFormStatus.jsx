@@ -1,9 +1,9 @@
-import React, { useActionState, useState } from "react";
+import React, { useActionState } from "react";
 import { loginUser } from "../../api/user";
 import CustomButton from "./CustomButton";
 
-const LoginUseAction = () => {
-  const [user, submitAction, isPending] = useActionState(login, {
+const LoginFormStatus = () => {
+  const [user, submitAction] = useActionState(login, {
     error: null,
     data: null,
   });
@@ -19,9 +19,10 @@ const LoginUseAction = () => {
       return { ...previousState, error: error.error };
     }
   }
+
   return (
     <div>
-      <h3>Login using useActionState</h3>
+      <h3>Login using useFormStatus & useActionState</h3>
       <form action={submitAction}>
         <input type="email" name="email" placeholder="Enter Email" required />
         <input
@@ -30,10 +31,6 @@ const LoginUseAction = () => {
           placeholder="Enter Password"
           required
         />
-        {/* <button type="submit" disabled={isPending}>
-          {isPending ? "Logging in..." : "Login"}
-        </button> */}
-        
         <CustomButton />
         {user.data && (
           <p className="text-green-600">Logged in: {user.data.email}</p>
@@ -44,4 +41,4 @@ const LoginUseAction = () => {
   );
 };
 
-export default LoginUseAction;
+export default LoginFormStatus;
