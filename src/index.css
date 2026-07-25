@@ -461,26 +461,41 @@ code:not(pre code) {
 }
 
 /* Styled buttons for user demos */
-.demo-card-container button {
-  background: var(--primary-gradient);
-  border: none;
+.demo-card-container button,
+.action-state-card button {
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  border: 1px solid #10b981;
   color: #ffffff;
-  padding: 0.65rem 1.25rem;
+  padding: 0.65rem 1.35rem;
   border-radius: 8px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   margin-right: 0.75rem;
   margin-bottom: 0.75rem;
   transition: var(--transition-smooth);
-  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.2);
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
   font-family: var(--font-family);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
 }
 
-.demo-card-container button:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(99, 102, 241, 0.35);
+.demo-card-container button:hover,
+.action-state-card button:hover {
+  background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+  border-color: #34d399;
+  color: #030712;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+  transform: translateY(-2px);
+}
+
+.demo-card-container button:disabled,
+.action-state-card button:disabled {
+  background: #1f2937 !important;
+  border-color: #374151 !important;
+  color: #6b7280 !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+  transform: none !important;
+  opacity: 0.7 !important;
 }
 
 .demo-card-container button:active {
@@ -907,14 +922,17 @@ code:not(pre code) {
 }
 
 .custom-btn-primary {
-  background: var(--primary-gradient);
-  border: none;
-  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  border: 1px solid #10b981;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
 }
 
 .custom-btn-primary:hover {
-  opacity: 0.92;
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+  background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+  border-color: #34d399;
+  color: #030712;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
   transform: translateY(-2px);
 }
 
