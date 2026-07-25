@@ -462,54 +462,63 @@ code:not(pre code) {
 
 /* Styled buttons for user demos */
 .demo-card-container button,
-.action-state-card button {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #ffffff;
-  padding: 0.55rem 1.1rem;
+.action-state-card button,
+.custom-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.6rem 1.25rem;
   border-radius: 8px;
   font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 1.2;
   cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: var(--transition-smooth);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  font-family: var(--font-family);
+  vertical-align: middle;
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
-  transition: var(--transition-smooth);
-  font-family: var(--font-family);
-  font-size: 0.88rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .demo-card-container button:hover,
-.action-state-card button:hover {
-  background: rgba(255, 255, 255, 0.14);
+.action-state-card button:hover,
+.custom-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
   color: #ffffff;
   border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
   transform: translateY(-1px);
 }
 
 .demo-card-container button[type="submit"],
 .action-state-card button[type="submit"],
 .custom-btn-primary {
-  background: #ffffff;
-  color: #09090b;
-  border: 1px solid #ffffff;
-  font-weight: 700;
-  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.15);
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%) !important;
+  border: 1px solid #10b981 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3) !important;
 }
 
 .demo-card-container button[type="submit"]:hover,
 .action-state-card button[type="submit"]:hover,
 .custom-btn-primary:hover {
-  background: #e4e4e7;
-  color: #000000;
-  border-color: #e4e4e7;
-  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.25);
+  background: linear-gradient(135deg, #10b981 0%, #34d399 100%) !important;
+  border-color: #34d399 !important;
+  color: #030712 !important;
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.45) !important;
   transform: translateY(-1px);
 }
 
 .demo-card-container button:disabled,
 .action-state-card button:disabled,
-.custom-btn-primary:disabled {
+.custom-btn-primary:disabled,
+.custom-btn:disabled {
   background: rgba(255, 255, 255, 0.04) !important;
   border-color: rgba(255, 255, 255, 0.08) !important;
   color: #71717a !important;
