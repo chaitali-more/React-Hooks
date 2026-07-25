@@ -463,39 +463,60 @@ code:not(pre code) {
 /* Styled buttons for user demos */
 .demo-card-container button,
 .action-state-card button {
-  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
-  border: 1px solid #10b981;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   color: #ffffff;
-  padding: 0.65rem 1.35rem;
+  padding: 0.55rem 1.1rem;
   border-radius: 8px;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
-  margin-right: 0.75rem;
-  margin-bottom: 0.75rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
   transition: var(--transition-smooth);
-  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
   font-family: var(--font-family);
-  font-size: 0.92rem;
+  font-size: 0.88rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .demo-card-container button:hover,
 .action-state-card button:hover {
-  background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
-  border-color: #34d399;
-  color: #030712;
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
-  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transform: translateY(-1px);
+}
+
+.demo-card-container button[type="submit"],
+.action-state-card button[type="submit"],
+.custom-btn-primary {
+  background: #ffffff;
+  color: #09090b;
+  border: 1px solid #ffffff;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.15);
+}
+
+.demo-card-container button[type="submit"]:hover,
+.action-state-card button[type="submit"]:hover,
+.custom-btn-primary:hover {
+  background: #e4e4e7;
+  color: #000000;
+  border-color: #e4e4e7;
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
 }
 
 .demo-card-container button:disabled,
-.action-state-card button:disabled {
-  background: #1f2937 !important;
-  border-color: #374151 !important;
-  color: #6b7280 !important;
+.action-state-card button:disabled,
+.custom-btn-primary:disabled {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #71717a !important;
   cursor: not-allowed !important;
   box-shadow: none !important;
   transform: none !important;
-  opacity: 0.7 !important;
+  opacity: 0.6 !important;
 }
 
 .demo-card-container button:active {
