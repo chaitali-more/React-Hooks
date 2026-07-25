@@ -6,19 +6,7 @@ const UseActionState = () => {
   return (
     <div className="use-action-state-page">
       {/* Test Credentials Helper */}
-      <div
-        style={{
-          background: "rgba(99, 102, 241, 0.1)",
-          border: "1px solid rgba(99, 102, 241, 0.25)",
-          borderRadius: "10px",
-          padding: "0.85rem 1.25rem",
-          display: "flex",
-          alignItems: "center",
-          gap: "0.75rem",
-          fontSize: "0.9rem",
-          color: "#e2e8f0",
-        }}
-      >
+      <div className="bg-indigo-950/30 border border-indigo-500/30 rounded-xl p-3.5 flex items-center gap-3 text-sm text-slate-200">
         <span>💡 <strong>Test Credentials for Demo:</strong> Email: <code>test@gmail.com</code> | Password: <code>pass</code></span>
       </div>
 
@@ -32,8 +20,8 @@ const UseActionState = () => {
             </span>
             <Login />
           </div>
-          <div style={{ marginTop: "1rem", paddingTop: "0.75rem", borderTop: "1px solid var(--border-color)" }}>
-            <p style={{ fontSize: "0.82rem", color: "var(--text-muted)", margin: 0 }}>
+          <div className="mt-4 pt-3 border-t border-slate-700/40">
+            <p className="text-xs text-slate-400 m-0">
               Uses <code>onSubmit</code>, <code>e.preventDefault()</code>, manual <code>new FormData(e.currentTarget)</code>, and custom <code>isPending</code> state.
             </p>
           </div>
@@ -47,8 +35,8 @@ const UseActionState = () => {
             </span>
             <LoginUseAction />
           </div>
-          <div style={{ marginTop: "1rem", paddingTop: "0.75rem", borderTop: "1px solid var(--border-color)" }}>
-            <p style={{ fontSize: "0.82rem", color: "var(--text-muted)", margin: 0 }}>
+          <div className="mt-4 pt-3 border-t border-slate-700/40">
+            <p className="text-xs text-slate-400 m-0">
               Uses React 19 <code>useActionState</code> hook with <code>&lt;form action=&#123;submitAction&#125;&gt;</code> and built-in <code>isPending</code> status.
             </p>
           </div>
@@ -57,10 +45,10 @@ const UseActionState = () => {
 
       {/* Benefits Summary Banner */}
       <div className="benefits-banner">
-        <h3 style={{ margin: 0, color: "#ffffff", fontSize: "1.2rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+        <h3 className="text-lg font-bold text-white flex items-center gap-2 m-0">
           🚀 Key Benefits of React 19 <code>useActionState</code>
         </h3>
-        <p style={{ color: "var(--text-muted)", fontSize: "0.92rem", marginTop: "0.35rem", marginBottom: "1rem" }}>
+        <p className="text-sm text-slate-400 mt-1 mb-4">
           React 19 simplifies form handling by integrating state management directly with form actions.
         </p>
 
@@ -89,34 +77,34 @@ const UseActionState = () => {
       </div>
 
       {/* Signature & Parameter Breakdown */}
-      <div className="demo-notes-card" style={{ marginTop: 0 }}>
+      <div className="demo-notes-card mt-0">
         <h3>🔍 Hook Signature Breakdown</h3>
         <div className="code-block-box">
           <code>const [state, submitAction, isPending] = useActionState(actionFunction, initialState);</code>
         </div>
         
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1rem", marginTop: "1rem" }}>
-          <div style={{ background: "rgba(255, 255, 255, 0.02)", padding: "0.85rem", borderRadius: "8px", border: "1px solid var(--border-color)" }}>
-            <span style={{ color: "#a5b4fc", fontWeight: "700" }}>1. state</span>
-            <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginTop: "0.25rem", margin: 0 }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+          <div className="bg-slate-800/40 p-3.5 rounded-lg border border-slate-700/50">
+            <span className="text-indigo-300 font-bold">1. state</span>
+            <p className="text-xs text-slate-400 mt-1 m-0">
               Stores the current value returned by the action function (e.g. <code>&#123; error: null, data: response &#125;</code>).
             </p>
           </div>
-          <div style={{ background: "rgba(255, 255, 255, 0.02)", padding: "0.85rem", borderRadius: "8px", border: "1px solid var(--border-color)" }}>
-            <span style={{ color: "#a5b4fc", fontWeight: "700" }}>2. submitAction</span>
-            <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginTop: "0.25rem", margin: 0 }}>
+          <div className="bg-slate-800/40 p-3.5 rounded-lg border border-slate-700/50">
+            <span className="text-indigo-300 font-bold">2. submitAction</span>
+            <p className="text-xs text-slate-400 mt-1 m-0">
               Action function passed directly to <code>&lt;form action=&#123;submitAction&#125;&gt;</code>.
             </p>
           </div>
-          <div style={{ background: "rgba(255, 255, 255, 0.02)", padding: "0.85rem", borderRadius: "8px", border: "1px solid var(--border-color)" }}>
-            <span style={{ color: "#a5b4fc", fontWeight: "700" }}>3. isPending</span>
-            <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginTop: "0.25rem", margin: 0 }}>
+          <div className="bg-slate-800/40 p-3.5 rounded-lg border border-slate-700/50">
+            <span className="text-indigo-300 font-bold">3. isPending</span>
+            <p className="text-xs text-slate-400 mt-1 m-0">
               Boolean flag that becomes <code>true</code> automatically while the async action function is executing.
             </p>
           </div>
-          <div style={{ background: "rgba(255, 255, 255, 0.02)", padding: "0.85rem", borderRadius: "8px", border: "1px solid var(--border-color)" }}>
-            <span style={{ color: "#a5b4fc", fontWeight: "700" }}>4. actionFunction</span>
-            <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginTop: "0.25rem", margin: 0 }}>
+          <div className="bg-slate-800/40 p-3.5 rounded-lg border border-slate-700/50">
+            <span className="text-indigo-300 font-bold">4. actionFunction</span>
+            <p className="text-xs text-slate-400 mt-1 m-0">
               Async function with signature <code>(previousState, formData) =&gt; newState</code>.
             </p>
           </div>
@@ -124,16 +112,16 @@ const UseActionState = () => {
       </div>
 
       {/* Execution Flow Diagram Comparison */}
-      <div style={{ background: "rgba(15, 23, 42, 0.6)", border: "1px solid var(--border-color)", borderRadius: "14px", padding: "1.5rem" }}>
-        <h3 style={{ margin: 0, color: "#ffffff", fontSize: "1.15rem" }}>🔄 Execution Flow Comparison</h3>
-        <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", marginTop: "0.25rem" }}>
+      <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-6">
+        <h3 className="text-lg font-bold text-white m-0">🔄 Execution Flow Comparison</h3>
+        <p className="text-sm text-slate-400 mt-1">
           Notice how React 19 eliminates manual event handling steps.
         </p>
 
         <div className="flow-diagram-container">
           {/* Old Flow */}
           <div className="flow-box">
-            <span style={{ color: "#fbbf24", fontWeight: "700", fontSize: "0.9rem" }}>Old Way (onSubmit)</span>
+            <span className="text-amber-400 font-bold text-sm">Old Way (onSubmit)</span>
             <div className="flow-steps">
               <div className="flow-step">1. User Clicks Submit (triggers <code>onSubmit</code>)</div>
               <div className="flow-arrow">↓</div>
@@ -147,7 +135,7 @@ const UseActionState = () => {
 
           {/* New Flow */}
           <div className="flow-box">
-            <span style={{ color: "#34d399", fontWeight: "700", fontSize: "0.9rem" }}>React 19 Way (action)</span>
+            <span className="text-emerald-400 font-bold text-sm">React 19 Way (action)</span>
             <div className="flow-steps">
               <div className="flow-step">1. User Clicks Submit (triggers <code>form action</code>)</div>
               <div className="flow-arrow">↓</div>
@@ -162,20 +150,20 @@ const UseActionState = () => {
       </div>
 
       {/* Understanding FormData Note */}
-      <div className="demo-notes-card" style={{ marginTop: 0, borderLeftColor: "#a855f7" }}>
-        <h3 style={{ color: "#c084fc" }}>💡 What is FormData?</h3>
+      <div className="demo-notes-card mt-0 border-l-purple-500">
+        <h3 className="text-purple-400">💡 What is FormData?</h3>
         <p>
           <strong><code>FormData</code></strong> is a built-in <strong>Browser Web API</strong> object used to collect form input values as key-value pairs. It is <em>not</em> part of React.
         </p>
-        <ul style={{ margin: 0 }}>
+        <ul className="m-0">
           <li>In <strong>React 18</strong>, we had to manually construct it using <code>new FormData(e.currentTarget)</code> inside the <code>onSubmit</code> event handler.</li>
           <li>In <strong>React 19</strong>, when using <code>&lt;form action=&#123;submitAction&#125;&gt;</code> or <code>useActionState</code>, React automatically passes the <code>FormData</code> object as the second argument to your action function!</li>
         </ul>
       </div>
 
       {/* Feature Comparison Table */}
-      <div style={{ background: "rgba(15, 23, 42, 0.6)", border: "1px solid var(--border-color)", borderRadius: "14px", padding: "1.5rem" }}>
-        <h3 style={{ margin: 0, color: "#ffffff", fontSize: "1.15rem" }}>📊 Summary Comparison Table</h3>
+      <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-6">
+        <h3 className="text-lg font-bold text-white m-0">📊 Summary Comparison Table</h3>
         
         <div className="comparison-table-container">
           <table className="comparison-table">
@@ -219,29 +207,29 @@ const UseActionState = () => {
 
       {/* Interview One-Liner Banner */}
       <div className="interview-banner">
-        <h4 style={{ margin: 0, color: "#d8b4fe", fontSize: "1.05rem", display: "flex", alignItems: "center", gap: "0.4rem" }}>
+        <h4 className="text-purple-300 font-bold text-base flex items-center gap-1.5 m-0">
           ⭐ Interview One-Liner
         </h4>
-        <blockquote style={{ margin: "0.5rem 0 0 0", color: "#f3f4f6", fontSize: "0.95rem", fontStyle: "italic", lineHeight: "1.6" }}>
+        <blockquote className="text-slate-100 text-sm italic leading-relaxed mt-2 m-0">
           &ldquo;<strong><code>action</code> automatically provides <code>FormData</code> and manages pending state via <code>useActionState</code>, making form handling simpler and eliminating the need for <code>e.preventDefault()</code> and manual <code>new FormData()</code> creation.</strong>&rdquo;
         </blockquote>
       </div>
 
       {/* Full Code Reference Section */}
-      <div style={{ background: "rgba(15, 23, 42, 0.6)", border: "1px solid var(--border-color)", borderRadius: "14px", padding: "1.5rem" }}>
-        <h3 style={{ margin: 0, color: "#ffffff", fontSize: "1.2rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+      <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-6">
+        <h3 className="text-lg font-bold text-white flex items-center gap-2 m-0">
           💻 Complete Code Reference
         </h3>
-        <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", marginTop: "0.25rem", marginBottom: "1.25rem" }}>
+        <p className="text-sm text-slate-400 mt-1 mb-5">
           Inspect the complete source code comparison and helper function implementations below.
         </p>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+        <div className="flex flex-col gap-6">
           {/* Old Way Code Box */}
           <div>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.35rem" }}>
-              <span style={{ color: "#fbbf24", fontWeight: "700", fontSize: "0.9rem" }}>1. Login.jsx (React 18 - Old Way)</span>
-              <span style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>onSubmit + useState + e.preventDefault()</span>
+            <div className="flex justify-between items-center mb-1.5">
+              <span className="text-amber-400 font-bold text-sm">1. Login.jsx (React 18 - Old Way)</span>
+              <span className="text-xs text-slate-400">onSubmit + useState + e.preventDefault()</span>
             </div>
             <pre className="code-block-box">
 {`import React, { useState } from "react";
@@ -297,9 +285,9 @@ export default Login;`}
 
           {/* Fake API Promise Box */}
           <div>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.35rem" }}>
-              <span style={{ color: "#818cf8", fontWeight: "700", fontSize: "0.9rem" }}>2. api/user.js (Fake Async API Call)</span>
-              <span style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>Mock API Promise</span>
+            <div className="flex justify-between items-center mb-1.5">
+              <span className="text-indigo-400 font-bold text-sm">2. api/user.js (Fake Async API Call)</span>
+              <span className="text-xs text-slate-400">Mock API Promise</span>
             </div>
             <pre className="code-block-box">
 {`// loginUser.jsx / api/user.js
@@ -326,9 +314,9 @@ export const loginUser = (email, password) => {
 
           {/* New Way Code Box */}
           <div>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.35rem" }}>
-              <span style={{ color: "#34d399", fontWeight: "700", fontSize: "0.9rem" }}>3. LoginUseAction.jsx (React 19 - useActionState)</span>
-              <span style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>form action + useActionState</span>
+            <div className="flex justify-between items-center mb-1.5">
+              <span className="text-emerald-400 font-bold text-sm">3. LoginUseAction.jsx (React 19 - useActionState)</span>
+              <span className="text-xs text-slate-400">form action + useActionState</span>
             </div>
             <pre className="code-block-box">
 {`import React, { useActionState } from "react";
@@ -417,11 +405,11 @@ export default LoginUseAction;`}
 
           {/* Quick Mapping Summary Box */}
           <div>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.35rem" }}>
-              <span style={{ color: "#c084fc", fontWeight: "700", fontSize: "0.9rem" }}>4. Quick Array Destructuring Reference</span>
-              <span style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>Parameter Mapping</span>
+            <div className="flex justify-between items-center mb-1.5">
+              <span className="text-purple-400 font-bold text-sm">4. Quick Array Destructuring Reference</span>
+              <span className="text-xs text-slate-400">Parameter Mapping</span>
             </div>
-            <pre className="code-block-box" style={{ background: "rgba(168, 85, 247, 0.08)", borderColor: "rgba(168, 85, 247, 0.25)" }}>
+            <pre className="code-block-box bg-purple-950/20 border-purple-800/40">
 {`[state, action, isPending]
 
 state                 → Current form state

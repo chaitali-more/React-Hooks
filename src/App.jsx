@@ -143,7 +143,7 @@ function App() {
               </div>
 
               <div className="dropdown-column">
-                <span className="dropdown-column-title" style={{ color: '#c084fc' }}>React 19 Hooks ✨</span>
+                <span className="dropdown-column-title react19-title">React 19 Hooks ✨</span>
                 <NavLink to="/use-action-state" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
                   useActionState
                 </NavLink>
@@ -241,7 +241,7 @@ function App() {
           </div>
 
           <div className="offcanvas-section">
-            <span className="offcanvas-section-title" style={{ color: '#c084fc' }}>React 19 Hooks ✨</span>
+            <span className="offcanvas-section-title react19-title">React 19 Hooks ✨</span>
             <div className="offcanvas-section-links">
               <NavLink to="/use-action-state" className="offcanvas-sublink" onClick={() => setIsMobileMenuOpen(false)}>
                 useActionState
