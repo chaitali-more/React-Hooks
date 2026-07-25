@@ -28,7 +28,7 @@ const Counter = () => {
                 dispatch({type: "increment"})
             }}
           >
-              + Increment
+              Increment
           </button>
           <button
             className="custom-btn"
@@ -36,7 +36,7 @@ const Counter = () => {
                 dispatch({type: "decrement"})
             }}
           >
-              - Decrement
+              Decrement
           </button>
           <button
             className="custom-btn custom-btn-danger"
@@ -44,7 +44,7 @@ const Counter = () => {
                 dispatch({type: "reset"})
             }}
           >
-              ↺ Reset
+              Reset
           </button>
         </div>
 

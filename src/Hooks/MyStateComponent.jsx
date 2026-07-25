@@ -94,10 +94,10 @@ const MyStateComponent = () => {
           </h2>
           <div className="btn-group">
             <button className="custom-btn custom-btn-primary" onClick={changeName}>
-              🖊️ Change Name
+              Change Name
             </button>
             <button className="custom-btn" onClick={toggleName}>
-              👁️ Toggle Visibility
+              Toggle Visibility
             </button>
           </div>
         </div>
@@ -109,10 +109,10 @@ const MyStateComponent = () => {
             <h2 className="counter-value-display" style={{ margin: 0, fontSize: "3rem" }}>{count}</h2>
             <div className="btn-group">
               <button className="custom-btn custom-btn-primary" onClick={increment}>
-                ➕ Increment (+2)
+                Increment (+2)
               </button>
               <button className="custom-btn custom-btn-danger" onClick={decrement}>
-                ➖ Decrement (-1)
+                Decrement (-1)
               </button>
             </div>
           </div>
@@ -133,7 +133,7 @@ const MyStateComponent = () => {
                 onChange={(e) => setName(e.target.value)}
               />
               <button className="custom-btn custom-btn-primary" style={{ width: "100%" }}>
-                ➕ Add to List
+                Add to List
               </button>
             </form>
             
@@ -182,7 +182,7 @@ const MyStateComponent = () => {
                 }
               />
               <button className="custom-btn custom-btn-primary" style={{ width: "100%" }}>
-                💾 Save Profile
+                Save Profile
               </button>
             </form>
 
