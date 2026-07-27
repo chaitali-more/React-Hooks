@@ -1,6 +1,8 @@
-import { createContext,useContext } from "react";
+import { createContext, useContext } from "react";
 
 export const userContext = createContext(null);
+// Capitalized alias for JSX component tag in React 19
+const UserContextComponent = userContext;
 
 // custom hook
 export const useUserDetails = () => {
@@ -13,8 +15,11 @@ export const useUserDetails = () => {
 
 export const UserContextProvider  = ({ children, userDetails }) => {
   return (
-    <userContext.Provider value={userDetails}>
+    // React 19: Render <UserContextComponent> directly as a Provider (capitalized JSX tag required)
+    <UserContextComponent value={userDetails}>
         {children}
-    </userContext.Provider>
+    </UserContextComponent>
   );
 };
+
+

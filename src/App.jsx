@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { Routes, Route, Link, NavLink, useLocation } from "react-router-dom";
 import Home from "./Home";
 import FunctionLifecycleDemo from "./components/FunctionLifecycleDemo";
@@ -17,6 +17,9 @@ import MyUseTransition from "./Hooks/UseTransition/MyUseTransition";
 import MyUseContext from "./Hooks/MyUseContext";
 import UseActionState from "./Hooks/useActionState/UseActionState";
 import UseFormStatus from "./Hooks/useFormStatus/UseFormStatus";
+import UseOptimistic from "./Hooks/useOptimistic/UseOptimistic";
+import ApiFetch, { LoadingFallback } from "./components/UseApi/ApiFetch.jsx";
+
 
 // Helper component to provide consistent layout wrapper around each demo component
 const DemoPageWrapper = ({ title, category, notes, children }) => {
@@ -73,7 +76,9 @@ function App() {
     "/use-translation",
     "/use-transition",
     "/use-action-state",
-    "/use-form-status"
+    "/use-form-status",
+    "/use-optimistic",
+    "/use-api"
   ].some(path => location.pathname === path);
 
   return (
@@ -145,12 +150,18 @@ function App() {
               </div>
 
               <div className="dropdown-column">
-                <span className="dropdown-column-title react19-title">React 19 Hooks ✨</span>
+                <span className="dropdown-column-title react19-title">React 19 ✨</span>
                 <NavLink to="/use-action-state" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
                   useActionState
                 </NavLink>
                 <NavLink to="/use-form-status" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
                   useFormStatus
+                </NavLink>
+                <NavLink to="/use-optimistic" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
+                  useOptimistic
+                </NavLink>
+                <NavLink to="/use-api" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
+                  use() API (Data Fetching)
                 </NavLink>
               </div>
             </div>
@@ -246,13 +257,19 @@ function App() {
           </div>
 
           <div className="offcanvas-section">
-            <span className="offcanvas-section-title react19-title">React 19 Hooks ✨</span>
+            <span className="offcanvas-section-title react19-title">React 19 ✨</span>
             <div className="offcanvas-section-links">
               <NavLink to="/use-action-state" className="offcanvas-sublink" onClick={() => setIsMobileMenuOpen(false)}>
                 useActionState
               </NavLink>
               <NavLink to="/use-form-status" className="offcanvas-sublink" onClick={() => setIsMobileMenuOpen(false)}>
                 useFormStatus
+              </NavLink>
+              <NavLink to="/use-optimistic" className="offcanvas-sublink" onClick={() => setIsMobileMenuOpen(false)}>
+                useOptimistic
+              </NavLink>
+              <NavLink to="/use-api" className="offcanvas-sublink" onClick={() => setIsMobileMenuOpen(false)}>
+                use() API (Data Fetching)
               </NavLink>
             </div>
           </div>
@@ -343,6 +360,7 @@ function App() {
                 notes={{
                   summary: "forwardRef passes DOM refs to child components, while Context API shares global data cleanly without prop drilling.",
                   points: [
+                    "✨ React 19 Update: Ref is now a standard prop! Function components no longer require forwardRef.",
                     "useImperativeHandle exposes custom child functions (e.g. focusInput, clearInput) up to parent components.",
                     "UserContextProvider shares user state across deep component trees using custom useUserDetails() hook."
                   ]
@@ -362,8 +380,8 @@ function App() {
                 notes={{
                   summary: "Context API provides a way to pass data through the component tree without having to pass props down manually at every level.",
                   points: [
+                    "✨ React 19 Update: Render <Context> directly as a Provider (e.g. <userContext value={data}>) without needing <Context.Provider>.",
                     "createContext creates a context object that can be subscribed to by components.",
-                    "Provider component accepts a value prop to be passed to consuming components.",
                     "useContext hook reads the current context value from the closest matching Provider above in the tree."
                   ]
                 }}
@@ -521,7 +539,51 @@ function App() {
             } 
           />
 
+          <Route 
+            path="/use-optimistic" 
+            element={
+              <DemoPageWrapper 
+                title="useOptimistic Hook Demo" 
+                category="React 19 Hook"
+                notes={{
+                  summary: "useOptimistic is a React 19 hook that allows you to optimistically update the UI while an async operation or server action is underway.",
+                  points: [
+                    "Displays temporary state immediately to users for instant responsiveness.",
+                    "Automatically reverts or updates to actual state once the server action completes."
+                  ]
+                }}
+              >
+                <UseOptimistic />
+              </DemoPageWrapper>
+            } 
+          />
+
           
+          <Route 
+            path="/use-api" 
+            element={
+              <DemoPageWrapper 
+                title="React 19 use() API Demo" 
+                category="React 19 API"
+                notes={{
+                  summary: "The React 19 use() API reads a Promise or Context directly inside a component and integrates seamlessly with React Suspense for loading UI.",
+                  points: [
+                    "⚡ Replaces useEffect + useState boilerplate for simple data fetching.",
+                    "⏳ Suspense displays the fallback UI automatically while the promise is pending.",
+                    "✅ Returns resolved data directly when the promise fulfills.",
+                    "🛡️ Handled by Error Boundaries if the promise rejects.",
+                    "📌 Create promises outside components (or use cache/useMemo) to avoid infinite re-fetching.",
+                    "💡 Unlike standard React Hooks, use() can be called inside loops and conditional statements!"
+                  ]
+                }}
+              >
+                <Suspense fallback={<LoadingFallback />}>
+                  <ApiFetch />
+                </Suspense>
+              </DemoPageWrapper>
+            } 
+          />
+
           <Route 
             path="/class-component" 
             element={

@@ -57,10 +57,35 @@ const Parent = () => {
           <span className="badge-info">Advanced Ref APIs</span>
         </div>
 
+        {/* ✨ React 19 Feature Note */}
+        <div style={{ background: "rgba(16, 185, 129, 0.12)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: "10px", padding: "1.25rem", marginTop: "1.5rem" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
+            <span style={{ fontSize: "1.1rem" }}>✨</span>
+            <h4 style={{ margin: 0, color: "#34d399", fontSize: "1rem", fontWeight: "700" }}>
+              React 19 Improvement: <code style={{ background: "rgba(6, 78, 59, 0.6)", color: "#6ee7b7", padding: "0.15rem 0.4rem", borderRadius: "4px" }}>ref</code> as a Prop (No forwardRef Needed!)
+            </h4>
+          </div>
+          <p style={{ color: "#e2e8f0", fontSize: "0.9rem", lineHeight: "1.6", margin: "0.5rem 0" }}>
+            Starting in <strong>React 19</strong>, <code>ref</code> is available directly as a standard prop in function components. New function components <strong>no longer need <code>forwardRef</code></strong>!
+          </p>
+          <pre style={{ background: "#090d16", border: "1px solid rgba(16, 185, 129, 0.25)", padding: "0.75rem 1rem", borderRadius: "8px", color: "#34d399", fontSize: "0.85rem", overflowX: "auto", margin: "0.75rem 0 0.5rem 0" }}>
+{`// React 19 Function Component (ref directly as a prop):
+function MyInput({ placeholder, ref }) {
+  return <input placeholder={placeholder} ref={ref} />;
+}
+
+// Parent usage:
+<MyInput ref={inputRef} />`}
+          </pre>
+          <p style={{ color: "#a7f3d0", fontSize: "0.85rem", margin: "0.5rem 0 0 0" }}>
+            💡 <strong>Note:</strong> React team will deprecate and remove <code>forwardRef</code> in future versions. A codemod will automatically update legacy components.
+          </p>
+        </div>
+
         {/* Section 1: forwardRef */}
-        <div style={{ marginTop: "1.5rem" }}>
+        <div style={{ marginTop: "1.75rem" }}>
           <h4 style={{ color: "#ffffff", fontSize: "1.1rem", borderBottom: "1px solid rgba(255,255,255,0.1)", paddingBottom: "0.4rem" }}>
-            🔗 React.forwardRef API
+            🔗 React.forwardRef API (Legacy / Pre-React 19)
           </h4>
           <p style={{ color: "var(--text-main)", fontSize: "0.95rem", lineHeight: "1.6", marginTop: "0.75rem" }}>
             <code>forwardRef</code> is a React API that lets a parent component pass a <code>ref</code> through a custom component to one of its child DOM elements.

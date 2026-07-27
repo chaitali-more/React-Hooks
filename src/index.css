@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
 
 :root {
   --bg-color: #08080a;
@@ -625,6 +626,15 @@ code:not(pre code) {
 }
 
 /* Animations */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -1422,6 +1432,195 @@ code:not(pre code) {
 .react19-title {
   color: #34d399 !important;
 }
+
+/* Dedicated React 19 use() API Page Layout & Spacing */
+.api-fetch-container {
+  width: 100%;
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 1.5rem 0.5rem;
+}
+
+.api-fetch-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.api-fetch-header h2 {
+  margin: 0 0 0.5rem 0 !important;
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.api-fetch-subtitle {
+  margin-top: 0.75rem !important;
+  font-size: 0.95rem;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+.api-fetch-badge {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.api-fetch-total-badge {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #94a3b8;
+  background: rgba(30, 41, 59, 0.8);
+  padding: 0.65rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  white-space: nowrap;
+}
+
+.api-fetch-comparison {
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+}
+
+.api-fetch-comparison-header {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #818cf8;
+  margin-bottom: 1.5rem !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.api-fetch-comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+}
+
+.api-fetch-comparison-box {
+  padding: 1.5rem;
+  border-radius: 14px;
+  line-height: 1.7;
+  font-size: 0.9rem;
+}
+
+.api-fetch-comparison-box.old-way {
+  background: rgba(127, 29, 29, 0.25);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #fca5a5;
+}
+
+.api-fetch-comparison-box.new-way {
+  background: rgba(6, 78, 59, 0.25);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #6ee7b7;
+}
+
+.api-fetch-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 2.25rem;
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 640px) {
+  .api-fetch-grid, .api-fetch-comparison-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.api-fetch-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 2.25rem 2rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+}
+
+.api-fetch-card:hover {
+  background: rgba(15, 23, 42, 0.95);
+  border-color: rgba(99, 102, 241, 0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 35px rgba(99, 102, 241, 0.18);
+}
+
+.api-fetch-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.api-fetch-card-id {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #818cf8;
+  background: rgba(30, 27, 75, 0.85);
+  border: 1px solid rgba(99, 102, 241, 0.45);
+  border-radius: 12px;
+}
+
+.api-fetch-card-title {
+  margin: 0 !important;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #f8fafc;
+  line-height: 1.5;
+  text-transform: capitalize;
+  flex: 1;
+}
+
+.api-fetch-card-body {
+  margin: 1.25rem 0 2rem 0 !important;
+  font-size: 0.95rem;
+  color: #94a3b8;
+  line-height: 1.75;
+  text-transform: capitalize;
+}
+
+.api-fetch-card-footer {
+  margin-top: auto !important;
+  padding-top: 1.5rem !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
 
 
 

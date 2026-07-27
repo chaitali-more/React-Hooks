@@ -4,6 +4,13 @@ import { Link } from "react-router-dom";
 const Home = () => {
   const cards = [
     {
+      title: "use() API (Data Fetching)",
+      description: "Read Promises directly inside components using React 19's new use() API paired with <Suspense>. Replaces boilerplate useEffect + useState for seamless async data rendering.",
+      tag: "React 19 API",
+      path: "/use-api",
+      icon: "🌐",
+    },
+    {
       title: "useActionState Hook",
       description: "Manage form actions and pending states effortlessly with React 19's useActionState hook. Simplifies form state, error handling, and eliminates manual onSubmit boilerplate.",
       tag: "React 19 Hook",
@@ -16,6 +23,13 @@ const Home = () => {
       tag: "React 19 Hook",
       path: "/use-form-status",
       icon: "⚡",
+    },
+    {
+      title: "useOptimistic Hook",
+      description: "Optimistically update the UI instantly while an async action or server request completes in the background, with automatic state synchronization.",
+      tag: "React 19 Hook",
+      path: "/use-optimistic",
+      icon: "🚀",
     },
     {
       title: "useState Hook",

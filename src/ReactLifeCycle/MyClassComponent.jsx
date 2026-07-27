@@ -24,10 +24,10 @@ export class MyClassComponentDemo extends Component {
     console.log("2️⃣ Render: UI Render");
 
     return (
-      <div className="demo-card-container">
-        <h3 className="text-lg font-bold text-white mb-2">Class Component Demo</h3>
-        <h4 className="text-slate-200 text-base mb-3">Count: {this.state.count}</h4>
-        <div className="btn-group">
+      <div className="demo-card-container space-y-4" style={{ padding: "2rem 1.75rem" }}>
+        <h3 className="text-xl font-bold text-white mb-2" style={{ marginBottom: "1rem" }}>Class Component Demo</h3>
+        <h4 className="text-slate-200 text-lg font-semibold mb-4" style={{ marginBottom: "1.25rem" }}>Count: <span className="text-indigo-400 font-mono font-bold">{this.state.count}</span></h4>
+        <div className="btn-group flex gap-3" style={{ gap: "0.75rem", marginBottom: "1rem" }}>
           <button
             className="custom-btn custom-btn-primary"
             onClick={() => {
@@ -45,7 +45,7 @@ export class MyClassComponentDemo extends Component {
             Decrease
           </button>
         </div>
-        <p className="text-sm text-slate-300 mt-3 m-0">
+        <p className="text-sm text-slate-300 pt-3 border-t border-slate-800 leading-relaxed m-0" style={{ paddingTop: "1rem", marginTop: "1rem" }}>
           💡 Open browser console (<code>F12</code> → Console) to observe lifecycle order: <code>Constructor</code> → <code>Render</code> → <code>componentDidMount</code> / <code>componentDidUpdate</code>!
         </p>
       </div>
@@ -55,74 +55,84 @@ export class MyClassComponentDemo extends Component {
 
 const MyClassComponent = () => {
   return (
-    <div className="use-action-state-page">
+    <div className="use-action-state-page space-y-8" style={{ padding: "1.5rem 0" }}>
       {/* Live Interactive Class Component Demo */}
-      <div className="action-state-grid">
-        <div className="action-state-card new-way">
-          <span className="card-badge-tag success">
+      <div className="action-state-grid grid grid-cols-1 md:grid-cols-2 gap-6" style={{ gap: "1.75rem", marginBottom: "2rem" }}>
+        <div className="action-state-card new-way" style={{ padding: "2rem 1.75rem" }}>
+          <span className="card-badge-tag success" style={{ marginBottom: "1.25rem", display: "inline-block" }}>
             ⚡ Live Class Component Lifecycle Demo
           </span>
           <MyClassComponentDemo />
         </div>
 
         {/* Quick Lifecycle Rules Card */}
-        <div className="action-state-card old-way">
-          <span className="card-badge-tag warning">
+        <div className="action-state-card old-way" style={{ padding: "2rem 1.75rem" }}>
+          <span className="card-badge-tag warning" style={{ marginBottom: "1.25rem", display: "inline-block" }}>
             📌 3 Main Lifecycle Phases
           </span>
-          <h4 className="text-white font-bold text-base mb-2">Class Component Lifecycle Order</h4>
-          <div className="flex flex-col gap-2 text-sm text-slate-300">
-            <div className="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800 font-mono">
-              <span className="text-emerald-400 font-bold">1. Mounting:</span> constructor → render → componentDidMount
+          <h4 className="text-white font-bold text-lg mb-3" style={{ marginTop: "0.5rem", marginBottom: "1.25rem" }}>Class Component Lifecycle Order</h4>
+          <div className="flex flex-col gap-3 text-sm text-slate-300" style={{ gap: "1rem" }}>
+            <div className="bg-slate-950/70 border border-slate-800/80 font-mono leading-relaxed" style={{ padding: "1.25rem", borderRadius: "12px" }}>
+              <span className="text-emerald-400 font-bold block mb-1" style={{ marginBottom: "0.4rem" }}>1. Mounting:</span> constructor → render → componentDidMount
             </div>
-            <div className="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800 font-mono">
-              <span className="text-amber-400 font-bold">2. Updating:</span> render → componentDidUpdate
+            <div className="bg-slate-950/70 border border-slate-800/80 font-mono leading-relaxed" style={{ padding: "1.25rem", borderRadius: "12px" }}>
+              <span className="text-amber-400 font-bold block mb-1" style={{ marginBottom: "0.4rem" }}>2. Updating:</span> render → componentDidUpdate
             </div>
-            <div className="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800 font-mono">
-              <span className="text-rose-400 font-bold">3. Unmounting:</span> componentWillUnmount
+            <div className="bg-slate-950/70 border border-slate-800/80 font-mono leading-relaxed" style={{ padding: "1.25rem", borderRadius: "12px" }}>
+              <span className="text-rose-400 font-bold block mb-1" style={{ marginBottom: "0.4rem" }}>3. Unmounting:</span> componentWillUnmount
             </div>
           </div>
         </div>
       </div>
 
       {/* Lifecycle Methods Detailed Breakdown */}
-      <div className="demo-notes-card mt-0">
-        <h3>🔍 Class Component Lifecycle Methods Explained</h3>
+      <div className="demo-notes-card" style={{ padding: "2.25rem 2rem", marginTop: "2.5rem", marginBottom: "2.5rem" }}>
+        <h3 className="text-xl font-bold text-indigo-300 flex items-center gap-2" style={{ marginBottom: "1.75rem", paddingBottom: "0.75rem", borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
+          🔍 Class Component Lifecycle Methods Explained
+        </h3>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-4">
-          <div className="bg-slate-800/40 p-3.5 rounded-lg border border-slate-700/50">
-            <span className="text-indigo-300 font-bold text-sm">1. constructor(props)</span>
-            <p className="text-sm text-slate-300 mt-1 m-0">
-              Runs first before component mounts. Used to initialize <code>this.state</code> and bind event handler methods.
-            </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" style={{ gap: "1.75rem", marginTop: "1.75rem" }}>
+          <div className="bg-slate-900/90 border border-slate-800/90 shadow-md" style={{ padding: "1.75rem 1.5rem", borderRadius: "16px", minHeight: "190px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+            <div>
+              <span className="text-indigo-400 font-bold text-base block" style={{ marginBottom: "0.85rem", display: "block" }}>1. constructor(props)</span>
+              <p className="text-sm text-slate-300 leading-relaxed" style={{ margin: 0, lineHeight: "1.7" }}>
+                Runs first before component mounts. Used to initialize <code className="bg-slate-950 px-1.5 py-0.5 rounded text-indigo-300" style={{ padding: "0.15rem 0.45rem", borderRadius: "6px" }}>this.state</code> and bind event handler methods.
+              </p>
+            </div>
           </div>
 
-          <div className="bg-slate-800/40 p-3.5 rounded-lg border border-slate-700/50">
-            <span className="text-emerald-300 font-bold text-sm">2. componentDidMount()</span>
-            <p className="text-sm text-slate-300 mt-1 m-0">
-              Invoked immediately after component is inserted into the DOM. Ideal for API data fetching, subscriptions, and timers.
-            </p>
+          <div className="bg-slate-900/90 border border-slate-800/90 shadow-md" style={{ padding: "1.75rem 1.5rem", borderRadius: "16px", minHeight: "190px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+            <div>
+              <span className="text-emerald-400 font-bold text-base block" style={{ marginBottom: "0.85rem", display: "block" }}>2. componentDidMount()</span>
+              <p className="text-sm text-slate-300 leading-relaxed" style={{ margin: 0, lineHeight: "1.7" }}>
+                Invoked immediately after component is inserted into the DOM. Ideal for API data fetching, subscriptions, and timers.
+              </p>
+            </div>
           </div>
 
-          <div className="bg-slate-800/40 p-3.5 rounded-lg border border-slate-700/50">
-            <span className="text-amber-300 font-bold text-sm">3. componentDidUpdate()</span>
-            <p className="text-sm text-slate-300 mt-1 m-0">
-              Invoked after state or prop updates happen. Provides access to <code>prevProps</code> and <code>prevState</code>.
-            </p>
+          <div className="bg-slate-900/90 border border-slate-800/90 shadow-md" style={{ padding: "1.75rem 1.5rem", borderRadius: "16px", minHeight: "190px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+            <div>
+              <span className="text-amber-400 font-bold text-base block" style={{ marginBottom: "0.85rem", display: "block" }}>3. componentDidUpdate()</span>
+              <p className="text-sm text-slate-300 leading-relaxed" style={{ margin: 0, lineHeight: "1.7" }}>
+                Invoked after state or prop updates happen. Provides access to <code className="bg-slate-950 px-1.5 py-0.5 rounded text-amber-300" style={{ padding: "0.15rem 0.45rem", borderRadius: "6px" }}>prevProps</code> and <code className="bg-slate-950 px-1.5 py-0.5 rounded text-amber-300" style={{ padding: "0.15rem 0.45rem", borderRadius: "6px" }}>prevState</code>.
+              </p>
+            </div>
           </div>
 
-          <div className="bg-slate-800/40 p-3.5 rounded-lg border border-slate-700/50">
-            <span className="text-rose-300 font-bold text-sm">4. componentWillUnmount()</span>
-            <p className="text-sm text-slate-300 mt-1 m-0">
-              Invoked immediately before component is destroyed/removed. Used for cleanup (clearing intervals, cancelling network requests).
-            </p>
+          <div className="bg-slate-900/90 border border-slate-800/90 shadow-md" style={{ padding: "1.75rem 1.5rem", borderRadius: "16px", minHeight: "190px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+            <div>
+              <span className="text-rose-400 font-bold text-base block" style={{ marginBottom: "0.85rem", display: "block" }}>4. componentWillUnmount()</span>
+              <p className="text-sm text-slate-300 leading-relaxed" style={{ margin: 0, lineHeight: "1.7" }}>
+                Invoked immediately before component is destroyed/removed. Used for cleanup (clearing intervals, cancelling network requests).
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Comparison: Class Component vs Functional Component (Hooks) */}
-      <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-6">
-        <h3 className="text-lg font-bold text-white m-0">📊 Class Component Methods vs React Hooks</h3>
+      <div className="bg-slate-900/60 border border-slate-800 rounded-2xl" style={{ padding: "2.25rem 2rem", margin: "2.5rem 0" }}>
+        <h3 className="text-xl font-bold text-white" style={{ marginBottom: "1.5rem" }}>📊 Class Component Methods vs React Hooks</h3>
 
         <div className="comparison-table-container">
           <table className="comparison-table">
@@ -160,25 +170,25 @@ const MyClassComponent = () => {
       </div>
 
       {/* Interview One-Liner Banner */}
-      <div className="interview-banner">
-        <h4 className="text-purple-300 font-bold text-base flex items-center gap-1.5 m-0">
+      <div className="interview-banner" style={{ padding: "2rem", margin: "2.5rem 0", borderRadius: "18px" }}>
+        <h4 className="text-purple-300 font-bold text-base flex items-center gap-1.5" style={{ margin: 0, marginBottom: "0.75rem" }}>
           ⭐ Interview One-Liner
         </h4>
-        <blockquote className="text-slate-100 text-sm italic leading-relaxed mt-2 m-0">
+        <blockquote className="text-slate-100 text-sm italic leading-relaxed" style={{ margin: 0, lineHeight: "1.7" }}>
           &ldquo;<strong>Class component lifecycles manage Mounting, Updating, and Unmounting using explicit methods (<code>componentDidMount</code>, <code>componentDidUpdate</code>, <code>componentWillUnmount</code>), whereas Functional Components simplify these into the unified <code>useEffect</code> Hook.</strong>&rdquo;
         </blockquote>
       </div>
 
       {/* Complete Code Reference Block */}
-      <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-6">
-        <h3 className="text-lg font-bold text-white flex items-center gap-2 m-0">
+      <div className="bg-slate-900/60 border border-slate-800 rounded-2xl" style={{ padding: "2.25rem 2rem", margin: "2.5rem 0" }}>
+        <h3 className="text-xl font-bold text-white flex items-center gap-2" style={{ marginBottom: "1.25rem" }}>
           💻 Complete Code Reference
         </h3>
-        <p className="text-sm text-slate-300 mt-1 mb-4">
+        <p className="text-sm text-slate-300" style={{ marginTop: "0.5rem", marginBottom: "1.5rem" }}>
           Full source code of <code>MyClassComponent.jsx</code> implementation:
         </p>
 
-        <pre className="code-block-box">
+        <pre className="code-block-box" style={{ padding: "1.5rem", borderRadius: "14px" }}>
 {`import React, { Component } from 'react';
 // rcc
 

@@ -48,9 +48,36 @@ const MyUseContext = () => {
           </h3>
           <span className="badge-info">Global State API</span>
         </div>
+        {/* ✨ React 19 Feature Note */}
+        <div style={{ background: "rgba(16, 185, 129, 0.12)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: "10px", padding: "1.25rem", marginTop: "1.5rem" }}>
+          <div style={{ display: "flex", items: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
+            <span style={{ fontSize: "1.1rem" }}>✨</span>
+            <h4 style={{ margin: 0, color: "#34d399", fontSize: "1rem", fontWeight: "700" }}>
+              React 19 Improvement: Render <code style={{ background: "rgba(6, 78, 59, 0.6)", color: "#6ee7b7", padding: "0.15rem 0.4rem", borderRadius: "4px" }}>&lt;Context&gt;</code> directly as a Provider!
+            </h4>
+          </div>
+          <p style={{ color: "#e2e8f0", fontSize: "0.9rem", lineHeight: "1.6", margin: "0.5rem 0" }}>
+            Starting in <strong>React 19</strong>, you can render <code>&lt;Context&gt;</code> directly as a provider instead of writing <code>&lt;Context.Provider&gt;</code>!
+          </p>
+          <pre style={{ background: "#090d16", border: "1px solid rgba(16, 185, 129, 0.25)", padding: "0.75rem 1rem", borderRadius: "8px", color: "#34d399", fontSize: "0.85rem", overflowX: "auto", margin: "0.75rem 0 0.5rem 0" }}>
+{`// React 19: <ThemeContext> rendered directly as provider!
+const ThemeContext = createContext('');
+
+function App({ children }) {
+  return (
+    <ThemeContext value="dark">
+      {children}
+    </ThemeContext>
+  );
+}`}
+          </pre>
+          <p style={{ color: "#a7f3d0", fontSize: "0.85rem", margin: "0.5rem 0 0 0" }}>
+            💡 <strong>Note:</strong> In future React versions, <code>&lt;Context.Provider&gt;</code> will be deprecated. A codemod will convert existing providers automatically.
+          </p>
+        </div>
 
         {/* Section 1: Why Context API */}
-        <div style={{ marginTop: "1.5rem" }}>
+        <div style={{ marginTop: "1.75rem" }}>
           <h4 style={{ color: "#ffffff", fontSize: "1.1rem", borderBottom: "1px solid rgba(255,255,255,0.1)", paddingBottom: "0.4rem" }}>
             ❓ Why do we need Context API?
           </h4>
