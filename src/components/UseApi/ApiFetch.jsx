@@ -141,6 +141,66 @@ const ApiFetch = () => {
           );
         })}
       </div>
+
+      {/* Complete Source Code Reference Block */}
+      <div className="bg-slate-900/60 border border-slate-800 rounded-2xl" style={{ padding: "2.25rem 2rem", marginTop: "3.5rem" }}>
+        <h3 className="text-xl font-bold text-white flex items-center gap-2" style={{ marginBottom: "0.75rem" }}>
+          💻 Complete Code Reference (<code style={{ color: "#34d399", background: "rgba(6, 78, 59, 0.4)", padding: "0.2rem 0.5rem", borderRadius: "6px" }}>ApiFetch.jsx</code>)
+        </h3>
+        <p className="text-sm text-slate-300" style={{ marginTop: "0.5rem", marginBottom: "1.5rem", lineHeight: "1.6" }}>
+          Below is your exact implementation using the React 19 <code style={{ color: "#a5b4fc" }}>use()</code> API + <code style={{ color: "#a5b4fc" }}>&lt;Suspense&gt;</code>:
+        </p>
+
+        <pre className="code-block-box" style={{ padding: "1.5rem", borderRadius: "14px", background: "#090d16", border: "1px solid rgba(255, 255, 255, 0.1)", color: "#a5b4fc", fontSize: "0.88rem", overflowX: "auto", lineHeight: "1.65" }}>
+{`import React, { use, useEffect, useState } from "react";
+
+// Promise created outside the component to avoid infinite re-fetching
+const fetchPost = fetch("https://jsonplaceholder.typicode.com/posts").then(
+  (response) => response.json(),
+);
+
+const ApiFetch = () => {
+  //   const [posts, setPosts] = useState(null);
+  //   const [loading, setLoading] = useState(true);
+  //   useEffect(() => {
+  //     fetch("https://jsonplaceholder.typicode.com/posts")
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         setPosts(data);
+  //         setLoading(false);
+  //       });
+  //   }, []);
+
+  //   if (loading) {
+  //     return <div>Loading Posts...</div>;
+  //   }
+
+  // React 19 use() API reads Promise directly
+  const posts = use(fetchPost);
+
+  return (
+    <div>
+      <h2>All Posts</h2>
+      {posts.map((post) => {
+        return (
+          <div key={post.id}>
+            <h3>{post.title}</h3>
+            <p>{post.body}</p>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+export default ApiFetch;
+
+// Usage in App component:
+// <Suspense fallback={<div>Loading...</div>}>
+//   <ApiFetch />
+// </Suspense>`}
+        </pre>
+      </div>
     </div>
   );
 };
